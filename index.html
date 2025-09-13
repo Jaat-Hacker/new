@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Real Calculator</title>
+  <style>
+    body { font-family: Arial; text-align: center; }
+    #calc { width: auto; margin: auto; }
+    input { width: 200px; height: 40px; text-align: right; font-size: 20px; margin-bottom: 10px; }
+    button { width: 50px; height: 50px; font-size: 18px; margin: 2px;
+             border-radius: 10px; background-color: black; color: red; }
+  </style>
+</head>
+<body>
+  <h2>Calculator</h2>
+  <div id="calc">
+    <input type="text" id="display" disabled>
+    <br>
+    <table border="3px" bordercolor="black" cellpadding="5px" align="center" bgcolor="grey">
+      <tr>
+        <td><button onclick="clr()">C</button></td>
+        <td><button onclick="press('/')">/</button></td>
+        <td><button onclick="press('*')">*</button></td>
+        <td><button onclick="press('-')">-</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="press('7')">7</button></td>
+        <td><button onclick="press('8')">8</button></td>
+        <td><button onclick="press('9')">9</button></td>
+        <td><button onclick="press('+')">+</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="press('4')">4</button></td>
+        <td><button onclick="press('5')">5</button></td>
+        <td><button onclick="press('6')">6</button></td>
+        <td><button onclick="equal()">=</button></td>
+      </tr>
+      <tr>
+        <td><button onclick="press('1')">1</button></td>
+        <td><button onclick="press('2')">2</button></td>
+        <td><button onclick="press('3')">3</button></td>
+        <td><button onclick="press('.')">.</button></td>
+      </tr>
+      <tr>
+        <td colspan="2"><button onclick="press('0')" style="width:100%;">0</button></td>
+        <td><button onclick="press('%')">%</button></td>
+        <td><button onclick="press('(')">(</button></td>
+      </tr>
+    </table>
+  </div>
+
+  <script>
+    function press(val) {
+      document.getElementById("display").value += val;
+    }
+    function clr() {
+      document.getElementById("display").value = "";
+    }
+    function equal() {
+      let exp = document.getElementById("display").value;
+      document.getElementById("display").value = eval(exp);
+    }
+  </script>
+</body>
+</html>
